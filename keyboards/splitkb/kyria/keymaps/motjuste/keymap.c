@@ -52,8 +52,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_NORMAN] = LAYOUT(
         KC_TAB , KC_Q   , KC_W   , KC_D   , KC_F   , KC_K   ,                                         KC_J   , KC_U   , KC_R   , KC_L   , KC_SCLN, KC_BSLS,
         CTL_ESC, KC_A   , KC_S   , KC_E   , KC_T   , KC_G   ,                                         KC_Y   , KC_N   , KC_I   , KC_O   , KC_H   , CTL_QUO,
-        KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, KC_P   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SC_SENT,
+        KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, KC_P   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_RSFT,
                                    XXXXXXX, XXXXXXX, KC_SPC , XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, KC_BSPC, XXXXXXX, XXXXXXX
+
+        // TODO, without any modifiers being triggered:
+        // KC_ENT
+        // KC_MINS
+        // KC_EQL
+
+        // TODO, one of them without modifiers
+        // KC_LCMD  in the left half
+        // KC_RCMD  in the right half
+
+        // TODO, somehow
+        // KC_ALGR  in the right half
+        // KC_LALT  in the left half
+
+        // IDEA: instead of SC_SENT, let's make it switch to switch to a symbol/numbers layer when held
+        //   No, unfortunately not, because I am used to having a shift there, but the habit of enter maybe changed
+        //   Because enter is usually a more destructive key, e.g. sending a message or command, unexpectedly
+        //   We could have it mapped in the symbols layer to be enter in the right-right-bottom position to have
+        //   the habit sustained, but the one in the layer 0 must not be possible to as easily press in haste.
     ),
 
 /*
