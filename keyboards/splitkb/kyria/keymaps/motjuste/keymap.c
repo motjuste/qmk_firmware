@@ -16,8 +16,8 @@
 #include QMK_KEYBOARD_H
 
 enum layers {
-    _QWERTY = 0,
-    _NORMAN,
+    _NORMAN = 0,
+    _QWERTY,
     _COLEMAK_DH,
     _NAV,
     _SYM,
@@ -27,9 +27,9 @@ enum layers {
 
 
 // Aliases for readability
+#define NORMAN   DF(_NORMAN)
 #define QWERTY   DF(_QWERTY)
 #define COLEMAK  DF(_COLEMAK_DH)
-#define NORMAN   DF(_NORMAN)
 
 #define SYM      MO(_SYM)
 #define NAV      MO(_NAV)
@@ -242,11 +242,11 @@ bool oled_task_user(void) {
         // Host Keyboard Layer Status
         oled_write_P(PSTR("Layer: "), false);
         switch (get_highest_layer(layer_state|default_layer_state)) {
-            case _QWERTY:
-                oled_write_P(PSTR("QWERTY\n"), false);
-                break;
             case _NORMAN:
                 oled_write_P(PSTR("Norman\n"), false);
+                break;
+            case _QWERTY:
+                oled_write_P(PSTR("QWERTY\n"), false);
                 break;
             case _COLEMAK_DH:
                 oled_write_P(PSTR("Colemak-DH\n"), false);
