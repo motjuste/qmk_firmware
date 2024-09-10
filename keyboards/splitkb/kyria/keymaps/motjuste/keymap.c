@@ -17,12 +17,13 @@
 
 enum layers {
     _NORMAN = 0,
+    _NUMNAV,
     _QWERTY,
     _COLEMAK_DH,
-    _NAV,
     _SYM,
     _FUNCTION,
     _ADJUST,
+    _NAV,
 };
 
 
@@ -50,30 +51,25 @@ enum layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_NORMAN] = LAYOUT(
-        KC_TAB , KC_Q   , KC_W   , KC_D   , KC_F   , KC_K   ,                                         KC_J   , KC_U   , KC_R   , KC_L   , KC_SCLN, KC_BSLS,
-        CTL_ESC, KC_A   , KC_S   , KC_E   , KC_T   , KC_G   ,                                         KC_Y   , KC_N   , KC_I   , KC_O   , KC_H   , CTL_QUO,
+        KC_TAB , KC_Q   , KC_W   , KC_D   , KC_F   , KC_K   ,                                         KC_J   , KC_U   , KC_R   , KC_L   , KC_SCLN, KC_LBRC,
+        KC_LCTL, KC_A   , KC_S   , KC_E   , KC_T   , KC_G   ,                                         KC_Y   , KC_N   , KC_I   , KC_O   , KC_H   , KC_QUOT,
         KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, KC_P   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_RSFT,
-                                   XXXXXXX, XXXXXXX, KC_SPC , XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, KC_BSPC, XXXXXXX, XXXXXXX
-
-        // TODO, without any modifiers being triggered:
-        // KC_ENT
-        // KC_MINS
-        // KC_EQL
-
-        // TODO, one of them without modifiers
-        // KC_LCMD  in the left half
-        // KC_RCMD  in the right half
-
-        // TODO, somehow
-        // KC_ALGR  in the right half
-        // KC_LALT  in the left half
-
-        // IDEA: instead of SC_SENT, let's make it switch to switch to a symbol/numbers layer when held
-        //   No, unfortunately not, because I am used to having a shift there, but the habit of enter maybe changed
-        //   Because enter is usually a more destructive key, e.g. sending a message or command, unexpectedly
-        //   We could have it mapped in the symbols layer to be enter in the right-right-bottom position to have
-        //   the habit sustained, but the one in the layer 0 must not be possible to as easily press in haste.
+                                   XXXXXXX, KC_LALT, KC_LCMD, KC_SPC , XXXXXXX,     XXXXXXX, KC_BSPC, KC_RCMD, KC_ALGR, XXXXXXX
     ),
+
+    [_NUMNAV] = LAYOUT(
+        KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   ,                                         KC_VOLU, KC_MPRV, KC_UP  , KC_MNXT, _______, _______,
+        _______, KC_6   , KC_7   , KC_8   , KC_9   , KC_0   ,                                         KC_VOLD, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL , _______,
+        _______, KC_LBRC, KC_RBRC, KC_BSLS, KC_MINS, KC_EQL , XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, KC_MPLY, KC_MUTE, _______, _______, _______, _______,
+                                   XXXXXXX, _______, _______, _______, XXXXXXX,     XXXXXXX, _______, _______, _______, XXXXXXX
+    ),
+
+    // TODO, without any modifiers being triggered:
+    // KC_ENT
+    // KC_ESC
+    // KC_MINS
+    // KC_EQL
+    // KC_BSLS
 
 /*
  * Base Layer: QWERTY
@@ -130,13 +126,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
- */
     [_NAV] = LAYOUT(
       _______, _______, _______, _______, _______, _______,                                     KC_PGUP, KC_HOME, KC_UP,   KC_END,  KC_VOLU, KC_DEL,
       _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, _______,                                     KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_VOLD, KC_INS,
       _______, _______, _______, _______, _______, _______, _______, KC_SCRL, _______, _______,KC_PAUSE, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_PSCR,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
+*/
 
 /*
  * Sym Layer: Numbers and symbols
