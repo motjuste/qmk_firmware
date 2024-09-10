@@ -28,18 +28,21 @@ enum layers {
 
 
 // Aliases for readability
+#define TNUMNAV  TT(_NUMNAV)
+
+#define CMD_MIN  MT(MOD_RGUI, KC_MINUS)
+#define CTL_ESC  MT(MOD_LCTL, KC_ESC)
+#define ALT_EQL  MT(MOD_LALT, KC_EQL)
+
 #define NORMAN   DF(_NORMAN)
 #define QWERTY   DF(_QWERTY)
 #define COLEMAK  DF(_COLEMAK_DH)
-
-#define TNUMNAV  TT(_NUMNAV)
 
 #define SYM      MO(_SYM)
 #define NAV      MO(_NAV)
 #define FKEYS    MO(_FUNCTION)
 #define ADJUST   MO(_ADJUST)
 
-#define CTL_ESC  MT(MOD_LCTL, KC_ESC)
 #define CTL_QUO  MT(MOD_RCTL, KC_QUOTE)
 
 #define CTL_MINS MT(MOD_RCTL, KC_MINUS)
@@ -54,22 +57,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_NORMAN] = LAYOUT(
         KC_TAB , KC_Q   , KC_W   , KC_D   , KC_F   , KC_K   ,                                         KC_J   , KC_U   , KC_R   , KC_L   , KC_SCLN, KC_LBRC,
-        KC_LCTL, KC_A   , KC_S   , KC_E   , KC_T   , KC_G   ,                                         KC_Y   , KC_N   , KC_I   , KC_O   , KC_H   , KC_QUOT,
-        KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_ESC,  KC_RBRC,     KC_MINS, KC_ENT , KC_P   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_RSFT,
-                                   XXXXXXX, KC_LALT, KC_LCMD, KC_SPC , XXXXXXX,     TNUMNAV, KC_BSPC, KC_RCMD, KC_ALGR, XXXXXXX
-        //                         bksp ++                                                            eql ++   bsls ++  spce ++
+        CTL_ESC, KC_A   , KC_S   , KC_E   , KC_T   , KC_G   ,                                         KC_Y   , KC_N   , KC_I   , KC_O   , KC_H   , KC_QUOT,
+        KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_ENT , KC_RBRC,     KC_BSLS, KC_ESC , KC_P   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SC_SENT,
+                                   XXXXXXX, KC_LALT, KC_LCMD, KC_SPC , XXXXXXX,     TNUMNAV, KC_BSPC, CMD_MIN, ALT_EQL, XXXXXXX
+        //                         bksp ++                                                                              spce ++
     ),
 
     [_NUMNAV] = LAYOUT(
         KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   ,                                         KC_VOLU, KC_MPRV, KC_UP  , KC_MNXT, _______, _______,
         _______, KC_6   , KC_7   , KC_8   , KC_9   , KC_0   ,                                         KC_VOLD, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL , _______,
-        _______, KC_LBRC, KC_RBRC, KC_BSLS, KC_MINS, KC_EQL , _______, XXXXXXX,     XXXXXXX, _______, KC_MPLY, KC_MUTE, _______, _______, _______, _______,
+        _______, KC_LBRC, KC_RBRC, KC_MINS, KC_EQL , KC_BSLS, _______, XXXXXXX,     XXXXXXX, _______, KC_MPLY, KC_MUTE, _______, _______, _______, _______,
                                    _______, _______, _______, _______, TNUMNAV,     XXXXXXX, _______, _______, _______, _______
     ),
-
-    // TODO, without any modifiers being triggered:
-    // KC_EQL
-    // KC_BSLS
 
 /*
  * Base Layer: QWERTY
