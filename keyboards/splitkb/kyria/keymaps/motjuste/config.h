@@ -16,6 +16,8 @@
 
 #pragma once
 
+#define TAPPING_TOGGLE 1
+
 #ifdef RGBLIGHT_ENABLE
 #    define RGBLIGHT_EFFECT_BREATHING
 #    define RGBLIGHT_EFFECT_RAINBOW_MOOD
@@ -34,4 +36,3 @@
 #    	define RGBLIGHT_LIMIT_VAL 150
 #    endif
 #endif
-
