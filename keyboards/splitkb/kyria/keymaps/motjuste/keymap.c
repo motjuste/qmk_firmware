@@ -33,6 +33,7 @@ enum layers {
 #define TNUMNAV  TT(_NUMBER)
 #define TSYMNAV  TT(_SYMBOL)
 #define LFUNSPC  LT(_FUNNAV, KC_SPC)
+#define LFUNBSP  LT(_FUNNAV, KC_BSPC)
 
 #define CMD_MIN  MT(MOD_RGUI, KC_MINUS)
 #define CTL_ESC  MT(MOD_LCTL, KC_ESC)
@@ -40,6 +41,7 @@ enum layers {
 
 #define NORMAN   DF(_NORMAN)
 #define QWERTY   DF(_QWERTY)
+
 #define COLEMAK  DF(_COLEMAK_DH)
 
 #define SYM      MO(_SYM)
@@ -63,8 +65,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB , KC_Q   , KC_W   , KC_D   , KC_F   , KC_K   ,                                         KC_J   , KC_U   , KC_R   , KC_L   , KC_SCLN, KC_LBRC,
         CTL_ESC, KC_A   , KC_S   , KC_E   , KC_T   , KC_G   ,                                         KC_Y   , KC_N   , KC_I   , KC_O   , KC_H   , KC_QUOT,
         KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_ENT , KC_RBRC,     KC_BSLS, KC_ESC , KC_P   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SC_SENT,
-                                   XXXXXXX, KC_LALT, KC_LCMD, KC_SPC , TSYMNAV,     TNUMNAV, KC_BSPC, CMD_MIN, ALT_EQL, LFUNSPC
-        //                         bksp ++                                                                              spce ++
+                                   LFUNBSP, KC_LALT, KC_LCMD, KC_SPC , TSYMNAV,     TNUMNAV, KC_BSPC, CMD_MIN, ALT_EQL, LFUNSPC
+    ),
+
+    [_QWERTY] = LAYOUT(
+        KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   ,                                         KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_LBRC,
+        CTL_ESC, KC_A   , KC_S   , KC_D   , KC_F   , KC_G   ,                                         KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, KC_QUOT,
+        KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_ENT , KC_RBRC,     KC_BSLS, KC_ESC , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SC_SENT,
+                                   LFUNBSP, KC_LALT, KC_LCMD, KC_SPC , TSYMNAV,     TNUMNAV, KC_BSPC, CMD_MIN, ALT_EQL, LFUNSPC
     ),
 
     [_NUMBER] = LAYOUT(
@@ -84,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_FUNNAV] = LAYOUT(
         KC_TILD, KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  ,                                         _______, _______, _______, _______, _______, _______,
         _______, KC_F6  , KC_F7  , KC_F8  , KC_F9  , KC_F10 ,                                         _______, _______, _______, _______, _______, _______,
-        _______, KC_BRID, KC_CAPS, KC_F11 , KC_F12 , KC_CAPS, _______, _______,     _______, _______, _______, _______, _______, _______, _______, _______,
+        _______, KC_BRID, KC_CAPS, KC_F11 , KC_F12 , KC_CAPS, NORMAN , QWERTY ,     _______, _______, _______, _______, _______, _______, _______, _______,
                                    _______, _______, _______, _______, TSYMNAV,     TNUMNAV, _______, _______, _______, _______
         //
         // IDEA: make right side mouse keys
@@ -92,26 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //  not make me, how John Siracusa put it, "drag myself by the teeth"
         //
     ),
-/*
- * Base Layer: QWERTY
- *
- * ,-------------------------------------------.                              ,-------------------------------------------.
- * |  Tab   |   Q  |   W  |   E  |   R  |   T  |                              |   Y  |   U  |   I  |   O  |   P  |  Bksp  |
- * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |Ctrl/Esc|   A  |   S  |   D  |   F  |   G  |                              |   H  |   J  |   K  |   L  | ;  : |Ctrl/' "|
- * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * | LShift |   Z  |   X  |   C  |   V  |   B  | [ {  |CapsLk|  |F-keys|  ] } |   N  |   M  | ,  < | . >  | /  ? | RShift |
- * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |Adjust| LGUI | LAlt/| Space| Nav  |  | Sym  | Space| AltGr| RGUI | Menu |
- *                        |      |      | Enter|      |      |  |      |      |      |      |      |
- *                        `----------------------------------'  `----------------------------------'
- */
-    [_QWERTY] = LAYOUT(
-     KC_TAB  , KC_Q ,  KC_W   ,  KC_E  ,   KC_R ,   KC_T ,                                        KC_Y,   KC_U ,  KC_I ,   KC_O ,  KC_P , KC_BSPC,
-     CTL_ESC , KC_A ,  KC_S   ,  KC_D  ,   KC_F ,   KC_G ,                                        KC_H,   KC_J ,  KC_K ,   KC_L ,KC_SCLN,CTL_QUO,
-     KC_LSFT , KC_Z ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B , KC_LBRC,KC_CAPS,     FKEYS  , KC_RBRC, KC_N,   KC_M ,KC_COMM, KC_DOT ,KC_SLSH, KC_RSFT,
-                                ADJUST , KC_LGUI, ALT_ENT, KC_SPC , NAV   ,     SYM    , KC_SPC ,KC_RALT, KC_RGUI, KC_APP
-    ),
+
 
 /*
  * Base Layer: Colemak DH
