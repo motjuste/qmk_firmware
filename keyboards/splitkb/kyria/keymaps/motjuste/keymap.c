@@ -17,8 +17,8 @@
 
 enum layers {
     _NORMAN = 0,
-    _NUMNAV,
-    _SYMNAV,
+    _NUMBER,
+    _SYMBOL,
     _FUNNAV,
     _QWERTY,
     _COLEMAK_DH,
@@ -30,8 +30,9 @@ enum layers {
 
 
 // Aliases for readability
-#define TNUMNAV  TT(_NUMNAV)
-#define TSYMNAV  TT(_SYMNAV)
+#define TNUMNAV  TT(_NUMBER)
+#define TSYMNAV  TT(_SYMBOL)
+#define LFUNSPC  LT(_FUNNAV, KC_SPC)
 
 #define CMD_MIN  MT(MOD_RGUI, KC_MINUS)
 #define CTL_ESC  MT(MOD_LCTL, KC_ESC)
@@ -62,18 +63,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB , KC_Q   , KC_W   , KC_D   , KC_F   , KC_K   ,                                         KC_J   , KC_U   , KC_R   , KC_L   , KC_SCLN, KC_LBRC,
         CTL_ESC, KC_A   , KC_S   , KC_E   , KC_T   , KC_G   ,                                         KC_Y   , KC_N   , KC_I   , KC_O   , KC_H   , KC_QUOT,
         KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_ENT , KC_RBRC,     KC_BSLS, KC_ESC , KC_P   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SC_SENT,
-                                   XXXXXXX, KC_LALT, KC_LCMD, KC_SPC , TSYMNAV,     TNUMNAV, KC_BSPC, CMD_MIN, ALT_EQL, XXXXXXX
+                                   XXXXXXX, KC_LALT, KC_LCMD, KC_SPC , TSYMNAV,     TNUMNAV, KC_BSPC, CMD_MIN, ALT_EQL, LFUNSPC
         //                         bksp ++                                                                              spce ++
     ),
 
-    [_NUMNAV] = LAYOUT(
+    [_NUMBER] = LAYOUT(
         KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   ,                                         KC_VOLU, KC_MPRV, KC_UP  , KC_MNXT, _______, _______,
         _______, KC_6   , KC_7   , KC_8   , KC_9   , KC_0   ,                                         KC_VOLD, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL , _______,
         _______, KC_LBRC, KC_RBRC, KC_MINS, KC_EQL , KC_BSLS, _______, _______,     _______, _______, KC_MPLY, KC_MUTE, _______, _______, _______, _______,
                                    _______, _______, _______, _______, TNUMNAV,     TSYMNAV, _______, _______, _______, _______
     ),
 
-    [_SYMNAV] = LAYOUT(
+    [_SYMBOL] = LAYOUT(
         KC_TILD, KC_EXLM, KC_AT  , KC_HASH, KC_DLR , KC_PERC,                                         _______, _______, _______, _______, KC_COLN, KC_LCBR,
         _______, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN,                                         _______, _______, _______, _______, _______, KC_DQUO,
         _______, KC_LCBR, KC_RCBR, KC_UNDS, KC_PLUS, KC_PIPE, _______, KC_RCBR,     KC_PIPE, _______, _______, _______, KC_LABK, KC_RABK, KC_QUES, _______,
