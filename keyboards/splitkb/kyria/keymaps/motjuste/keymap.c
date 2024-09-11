@@ -19,6 +19,7 @@ enum layers {
     _NORMAN = 0,
     _NUMNAV,
     _SYMNAV,
+    _FUNNAV,
     _QWERTY,
     _COLEMAK_DH,
     _SYM,
@@ -77,6 +78,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN,                                         _______, _______, _______, _______, _______, KC_DQUO,
         _______, KC_LCBR, KC_RCBR, KC_UNDS, KC_PLUS, KC_PIPE, _______, KC_RCBR,     KC_PIPE, _______, _______, _______, KC_LABK, KC_RABK, KC_QUES, _______,
                                    _______, _______, _______, _______, TSYMNAV,     TNUMNAV, _______, _______, _______, _______
+    ),
+
+    [_FUNNAV] = LAYOUT(
+        KC_TILD, KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  ,                                         _______, _______, _______, _______, _______, _______,
+        _______, KC_F6  , KC_F7  , KC_F8  , KC_F9  , KC_F10 ,                                         _______, _______, _______, _______, _______, _______,
+        _______, KC_BRID, KC_CAPS, KC_F11 , KC_F12 , KC_CAPS, _______, _______,     _______, _______, _______, _______, _______, _______, _______, _______,
+                                   _______, _______, _______, _______, TSYMNAV,     TNUMNAV, _______, _______, _______, _______
+        //
+        // IDEA: make right side mouse keys
+        //  but I want it to enable me to jump around on the screen (properly),
+        //  not make me, how John Siracusa put it, "drag myself by the teeth"
+        //
     ),
 /*
  * Base Layer: QWERTY
