@@ -63,14 +63,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_NORMAN] = LAYOUT(
         KC_TAB , KC_Q   , KC_W   , KC_D   , KC_F   , KC_K   ,                                         KC_J   , KC_U   , KC_R   , KC_L   , KC_SCLN, KC_LBRC,
-        CTL_ESC, KC_A   , KC_S   , KC_E   , KC_T   , KC_G   ,                                         KC_Y   , KC_N   , KC_I   , KC_O   , KC_H   , KC_QUOT,
+        CTL_ESC, KC_A   , KC_S   , KC_E   , KC_T   , KC_G   ,                                         KC_Y   , KC_N   , KC_I   , KC_O   , KC_H   , CTL_QUO,
         KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_ENT , KC_RBRC,     KC_BSLS, KC_ESC , KC_P   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SC_SENT,
                                    LFUNBSP, KC_LALT, KC_LCMD, KC_SPC , TSYMNAV,     TNUMNAV, KC_BSPC, CMD_MIN, ALT_EQL, LFUNSPC
     ),
 
     [_QWERTY] = LAYOUT(
         KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   ,                                         KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_LBRC,
-        CTL_ESC, KC_A   , KC_S   , KC_D   , KC_F   , KC_G   ,                                         KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, KC_QUOT,
+        CTL_ESC, KC_A   , KC_S   , KC_D   , KC_F   , KC_G   ,                                         KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, CTL_QUO,
         KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_ENT , KC_RBRC,     KC_BSLS, KC_ESC , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SC_SENT,
                                    LFUNBSP, KC_LALT, KC_LCMD, KC_SPC , TSYMNAV,     TNUMNAV, KC_BSPC, CMD_MIN, ALT_EQL, LFUNSPC
     ),
