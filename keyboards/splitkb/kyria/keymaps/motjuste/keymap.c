@@ -85,67 +85,56 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) { return OLED_ROTATION_180; }
 
+
 bool oled_task_user(void) {
+
+#ifdef MASTER_RIGHT
+    const bool is_on_the_right_side = is_keyboard_master();
+#else
+    const bool is_on_the_right_side = !is_keyboard_master();
+#endif
+
     const uint8_t current_layer = get_highest_layer(layer_state|default_layer_state);
-    // const bool on_the_right_side = is_keyboard_master();  // right is master, righ?
 
-    if (is_keyboard_master()) {
-        oled_set_cursor(0, 2);
-        switch (current_layer) {
-            case _NORMAN:
-                oled_write_P(PSTR("NORMAN\n"), false);
-                break;
-            case _QWERTY:
-                oled_write_P(PSTR("QWERTY\n"), false);
-                break;
-            case _NUMBER:
-                oled_write_P(PSTR("NUMBER\n"), false);
-                break;
-            case _SYMBOL:
-                oled_write_P(PSTR("SYMBOL\n"), true);
-                break;
-            case _FUNNAV:
-                oled_write_P(PSTR("FUNNAV\n"), true);
-                break;
-            default:
-                oled_write_P(PSTR("MISSED\n"), false);
-        }
+    oled_set_cursor(14, 0);
+    oled_write_P(current_layer == _QWERTY  ? PSTR("QWERTY ") : PSTR("       "), false);
 
-        oled_set_cursor(0, 7);
-        led_t led_usb_state = host_keyboard_led_state();
-        oled_write_P(led_usb_state.num_lock    ? PSTR("NUMLCK ") : PSTR("       "), false);
-        oled_write_P(led_usb_state.scroll_lock ? PSTR("SCRLCK ") : PSTR("       "), false);
-        oled_write_P(led_usb_state.caps_lock   ? PSTR("CAPLCK ") : PSTR("       "), false);
+    const uint8_t start = is_on_the_right_side ? 0 : 11;
+    bool invert = (current_layer == _FUNNAV)
+               || (current_layer == _SYMBOL &&  is_on_the_right_side)
+               || (current_layer == _NUMBER && !is_on_the_right_side);
+
+    oled_set_cursor(start, 2);
+    oled_write_P(PSTR("         "), invert);
+
+    oled_set_cursor(start, 3);
+    switch (current_layer) {
+        case _SYMBOL:
+            oled_write_P(PSTR("   SYM   "), invert);
+            break;
+        case _NUMBER:
+            oled_write_P(PSTR("   NUM   "), invert);
+            break;
+        case _FUNNAV:
+            oled_write_P(PSTR("   FUN   "), invert);
+            break;
+        case _NORMAN:
+        case _QWERTY:
+            oled_write_P(is_on_the_right_side ? PSTR("   SYM   ") : PSTR("   NUM   "), invert);
+            break;
+        default:
+            oled_write_P(PSTR("   ERR   "), !invert);
+            break;
     }
-    else {
-        oled_set_cursor(0, 2);
-        switch (current_layer) {
-            case _NORMAN:
-                oled_write_P(PSTR("NORMAN\n"), false);
-                break;
-            case _QWERTY:
-                oled_write_P(PSTR("QWERTY\n"), false);
-                break;
-            case _NUMBER:
-                oled_write_P(PSTR("NUMBER\n"), true);
-                break;
-            case _SYMBOL:
-                oled_write_P(PSTR("SYMBOL\n"), false);
-                break;
-            case _FUNNAV:
-                oled_write_P(PSTR("FUNNAV\n"), true);
-                break;
-            default:
-                oled_write_P(PSTR("MISSED\n"), false);
-        }
 
-        oled_set_cursor(0, 7);
-        led_t led_usb_state = host_keyboard_led_state();
-        oled_write_P(led_usb_state.num_lock    ? PSTR("NUMLCK ") : PSTR("       "), false);
-        oled_write_P(led_usb_state.scroll_lock ? PSTR("SCRLCK ") : PSTR("       "), false);
-        oled_write_P(led_usb_state.caps_lock   ? PSTR("CAPLCK ") : PSTR("       "), false);
+    oled_set_cursor(start, 4);
+    oled_write_P(PSTR("         "), invert);
 
-    }
+    oled_set_cursor(0, 7);
+    led_t led_usb_state = host_keyboard_led_state();
+    oled_write_P(led_usb_state.num_lock    ? PSTR("NUMLCK ") : PSTR("       "), false);
+    oled_write_P(led_usb_state.scroll_lock ? PSTR("SCRLCK ") : PSTR("       "), false);
+    oled_write_P(led_usb_state.caps_lock   ? PSTR("CAPLCK ") : PSTR("       "), false);
 
     return false;
 }
