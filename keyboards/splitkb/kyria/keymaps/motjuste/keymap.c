@@ -32,7 +32,7 @@ enum layers {
 
 #define CMD_MIN  MT(MOD_RGUI, KC_MINUS)
 #define CTL_ESC  MT(MOD_LCTL, KC_ESC)
-#define ALT_EQL  MT(MOD_LALT, KC_EQL)
+#define ALT_EQL  MT(MOD_RALT, KC_EQL)
 #define CTL_QUO  MT(MOD_RCTL, KC_QUOTE)
 
 #define NORMAN   DF(_NORMAN)
@@ -59,21 +59,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   ,                                         KC_VOLU, KC_MPRV, KC_UP  , KC_MNXT, _______, _______,
         _______, KC_6   , KC_7   , KC_8   , KC_9   , KC_0   ,                                         KC_VOLD, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL , _______,
         _______, KC_LBRC, KC_RBRC, KC_MINS, KC_EQL , KC_BSLS, _______, _______,     _______, _______, KC_MPLY, KC_MUTE, _______, _______, _______, _______,
-                                   _______, _______, _______, _______, TNUMNAV,     TSYMNAV, _______, _______, _______, _______
+                                   _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______
     ),
 
     [_SYMBOL] = LAYOUT(
         KC_TILD, KC_EXLM, KC_AT  , KC_HASH, KC_DLR , KC_PERC,                                         _______, _______, _______, _______, KC_COLN, KC_LCBR,
         _______, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN,                                         _______, _______, _______, _______, _______, KC_DQUO,
         _______, KC_LCBR, KC_RCBR, KC_UNDS, KC_PLUS, KC_PIPE, _______, KC_RCBR,     KC_PIPE, _______, _______, _______, KC_LABK, KC_RABK, KC_QUES, _______,
-                                   _______, _______, _______, _______, TSYMNAV,     TNUMNAV, _______, _______, _______, _______
+                                   _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______
     ),
 
     [_FUNNAV] = LAYOUT(
         KC_TILD, KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  ,                                         _______, _______, _______, _______, _______, _______,
         _______, KC_F6  , KC_F7  , KC_F8  , KC_F9  , KC_F10 ,                                         _______, _______, _______, _______, _______, _______,
-        _______, KC_BRID, KC_CAPS, KC_F11 , KC_F12 , KC_CAPS, NORMAN , QWERTY ,     _______, _______, _______, _______, _______, _______, _______, _______,
-                                   _______, _______, _______, _______, TSYMNAV,     TNUMNAV, _______, _______, _______, _______
+        _______, KC_BRID, KC_BRIU, KC_F11 , KC_F12 , KC_CAPS, NORMAN , QWERTY ,     _______, _______, _______, _______, _______, _______, _______, _______,
+                                   _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______
         //
         // IDEA: make right side mouse keys
         //  but I want it to enable me to jump around on the screen (properly),
