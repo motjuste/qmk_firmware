@@ -16,7 +16,7 @@
 
 #pragma once
 
-#define TAPPING_TOGGLE 1
+#define TAPPING_TOGGLE 2
 
 #define OLED_DISPLAY_128X64
 #define SPLIT_OLED_ENABLE
