@@ -18,5 +18,8 @@
 
 #define TAPPING_TOGGLE 2
 
+#define MASTER_RIGHT
+#define SPLIT_LAYER_STATE_ENABLE  // adds some overhead, but can then update both OLEDs
+
 #define OLED_DISPLAY_128X64
 #define SPLIT_OLED_ENABLE
