@@ -97,17 +97,25 @@ bool oled_task_user(void) {
         // clang-format on
 
         oled_write_P(qmk_logo, false);
-        oled_write_P(PSTR("Kyria rev1.0\n\n"), false);
+        oled_write_P(PSTR("motjuste.dev\n\n"), false);
 
         // Host Keyboard Layer Status
         oled_write_P(PSTR("Layer: "), false);
         switch (get_highest_layer(layer_state|default_layer_state)) {
             case _NORMAN:
-                oled_write_P(PSTR("Norman\n"), false);
+                oled_write_P(PSTR("NORMAN\n"), false);
                 break;
-            // TODO: handle _NUMNAV
             case _QWERTY:
                 oled_write_P(PSTR("QWERTY\n"), false);
+                break;
+            case _NUMBER    :
+                oled_write_P(PSTR("NUMBER\n"), false);
+                break;
+            case _SYMBOL:
+                oled_write_P(PSTR("SYMBOL\n"), false);
+                break;
+            case _FUNNAV:
+                oled_write_P(PSTR("FUNNAV\n"), false);
                 break;
             default:
                 oled_write_P(PSTR("Undefined\n"), false);
@@ -119,6 +127,7 @@ bool oled_task_user(void) {
         oled_write_P(led_usb_state.caps_lock   ? PSTR("CAPLCK ") : PSTR("       "), false);
         oled_write_P(led_usb_state.scroll_lock ? PSTR("SCRLCK ") : PSTR("       "), false);
     } else {
+        /*
         // clang-format off
         static const char PROGMEM kyria_logo[] = {
             0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,128,128,192,224,240,112,120, 56, 60, 28, 30, 14, 14, 14,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7, 14, 14, 14, 30, 28, 60, 56,120,112,240,224,192,128,128,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
@@ -132,6 +141,7 @@ bool oled_task_user(void) {
         };
         // clang-format on
         oled_write_raw_P(kyria_logo, sizeof(kyria_logo));
+        */
     }
     return false;
 }
