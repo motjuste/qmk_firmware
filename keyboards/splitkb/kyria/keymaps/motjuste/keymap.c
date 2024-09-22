@@ -29,8 +29,8 @@ enum layers {
 #define LFUNSPC LT(_FUNNAV, KC_SPC)
 #define LFUNBSP LT(_FUNNAV, KC_BSPC)
 
-#define CMD_LBR MT(MOD_RGUI, KC_LBRC)
-#define CTL_ESC MT(MOD_LCTL, KC_ESC)
+#define CMD_MIN MT(MOD_RGUI, KC_MINS)
+// #define CTL_ESC MT(MOD_LCTL, KC_ESC)
 #define ALT_EQL MT(MOD_RALT, KC_EQL)
 #define CTL_QUO MT(MOD_RCTL, KC_QUOTE)
 
@@ -41,30 +41,30 @@ enum layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_NORMAN] = LAYOUT(
-        KC_TAB , KC_Q   , KC_W   , KC_D   , KC_F   , KC_K   ,                                         KC_J   , KC_U   , KC_R   , KC_L   , KC_SCLN, KC_MINS,
-        CTL_ESC, KC_A   , KC_S   , KC_E   , KC_T   , KC_G   ,                                         KC_Y   , KC_N   , KC_I   , KC_O   , KC_H   , CTL_QUO,
-        SC_LSPO, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_ENT , KC_RBRC,     KC_BSLS, KC_ESC , KC_P   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SC_SENT,
-                                   LFUNBSP, KC_LALT, KC_SPC , KC_LCMD, TNUMNAV,     TSYMNAV, CMD_LBR, KC_BSPC, ALT_EQL, LFUNSPC
+        KC_TAB , KC_Q   , KC_W   , KC_D   , KC_F   , KC_K   ,                                         KC_J   , KC_U   , KC_R   , KC_L   , KC_SCLN, KC_LBRC,
+        KC_LCTL, KC_A   , KC_S   , KC_E   , KC_T   , KC_G   ,                                         KC_Y   , KC_N   , KC_I   , KC_O   , KC_H   , CTL_QUO,
+        KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_ENT , KC_RBRC,     KC_BSLS, KC_ESC , KC_P   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SC_SENT,
+                                   LFUNBSP, KC_LALT, KC_SPC , KC_LCMD, TNUMNAV,     TSYMNAV, TNUMNAV, CMD_MIN, ALT_EQL, LFUNSPC
     ),
 
     [_QWERTY] = LAYOUT(
-        KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   ,                                         KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_MINS,
-        CTL_ESC, KC_A   , KC_S   , KC_D   , KC_F   , KC_G   ,                                         KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, CTL_QUO,
-        SC_LSPO, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_ENT , KC_RBRC,     KC_BSLS, KC_ESC , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SC_SENT,
-                                   LFUNBSP, KC_LALT, KC_SPC , KC_LCMD, TNUMNAV,     TSYMNAV, CMD_LBR, KC_BSPC, ALT_EQL, LFUNSPC
+        KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   ,                                         KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_LBRC,
+        KC_LCTL, KC_A   , KC_S   , KC_D   , KC_F   , KC_G   ,                                         KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, CTL_QUO,
+        KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_ENT , KC_RBRC,     KC_BSLS, KC_ESC , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SC_SENT,
+                                   LFUNBSP, KC_LALT, KC_SPC , KC_LCMD, TNUMNAV,     TSYMNAV, TNUMNAV, CMD_MIN, ALT_EQL, LFUNSPC
     ),
 
     [_NUMBER] = LAYOUT(
         KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   ,                                         KC_VOLU, KC_MPRV, KC_UP  , KC_MNXT, _______, _______,
         _______, KC_6   , KC_7   , KC_8   , KC_9   , KC_0   ,                                         KC_VOLD, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL , _______,
-        _______, KC_LBRC, KC_RBRC, KC_MINS, KC_EQL , KC_BSLS, _______, _______,     _______, _______, KC_MPLY, KC_MUTE, _______, _______, _______, _______,
+        _______, KC_MINS, KC_EQL , KC_LBRC, KC_RBRC, KC_BSLS, _______, _______,     _______, _______, KC_MPLY, KC_MUTE, _______, _______, _______, _______,
                                    _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______
     ),
 
     [_SYMBOL] = LAYOUT(
         KC_TILD, KC_EXLM, KC_AT  , KC_HASH, KC_DLR , KC_PERC,                                         KC_VOLU, KC_MPRV, KC_UP  , KC_MNXT, KC_COLN, KC_LCBR,
         _______, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN,                                         KC_VOLD, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL , KC_DQUO,
-        _______, KC_LCBR, KC_RCBR, KC_UNDS, KC_PLUS, KC_PIPE, _______, KC_RCBR,     KC_PIPE, _______, KC_MPLY, KC_MUTE, KC_LABK, KC_RABK, KC_QUES, _______,
+        _______, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, _______, KC_RCBR,     KC_PIPE, _______, KC_MPLY, KC_MUTE, KC_LABK, KC_RABK, KC_QUES, _______,
                                    _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______
     ),
 
