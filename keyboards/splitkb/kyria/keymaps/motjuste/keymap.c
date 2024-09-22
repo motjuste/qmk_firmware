@@ -1,4 +1,4 @@
-/* Copyright 2019 Thomas Baart <thomas@splitkb.com>
+/* Copyright 2024 Abdullah (@motjuste) <abdullah.motjuste@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
