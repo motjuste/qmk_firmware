@@ -28,6 +28,7 @@ enum layers {
 #define TSYMNAV TT(_SYMBOL)
 #define LFUNSPC LT(_FUNNAV, KC_SPC)
 #define LFUNBSP LT(_FUNNAV, KC_BSPC)
+#define LFUNRBK LT(_FUNNAV, KC_RBRC)
 
 #define CMD_MIN MT(MOD_RGUI, KC_MINS)
 // #define CTL_ESC MT(MOD_LCTL, KC_ESC)
@@ -43,15 +44,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_NORMAN] = LAYOUT(
         KC_TAB , KC_Q   , KC_W   , KC_D   , KC_F   , KC_K   ,                                         KC_J   , KC_U   , KC_R   , KC_L   , KC_SCLN, KC_LBRC,
         KC_LCTL, KC_A   , KC_S   , KC_E   , KC_T   , KC_G   ,                                         KC_Y   , KC_N   , KC_I   , KC_O   , KC_H   , CTL_QUO,
-        KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_ENT , KC_RBRC,     KC_BSLS, KC_ESC , KC_P   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SC_SENT,
-                                   LFUNBSP, KC_LALT, KC_SPC , KC_LCMD, TNUMNAV,     TSYMNAV, TNUMNAV, CMD_MIN, ALT_EQL, LFUNSPC
+        KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_ENT , KC_BSPC,     KC_BSLS, KC_ESC , KC_P   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SC_SENT,
+                                   LFUNRBK, KC_LALT, KC_SPC , KC_LCMD, TNUMNAV,     TSYMNAV, TNUMNAV, CMD_MIN, ALT_EQL, LFUNSPC
     ),
 
     [_QWERTY] = LAYOUT(
         KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   ,                                         KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_LBRC,
         KC_LCTL, KC_A   , KC_S   , KC_D   , KC_F   , KC_G   ,                                         KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, CTL_QUO,
-        KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_ENT , KC_RBRC,     KC_BSLS, KC_ESC , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SC_SENT,
-                                   LFUNBSP, KC_LALT, KC_SPC , KC_LCMD, TNUMNAV,     TSYMNAV, TNUMNAV, CMD_MIN, ALT_EQL, LFUNSPC
+        KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_ENT , KC_BSPC,     KC_BSLS, KC_ESC , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SC_SENT,
+                                   LFUNRBK, KC_LALT, KC_SPC , KC_LCMD, TNUMNAV,     TSYMNAV, TNUMNAV, CMD_MIN, ALT_EQL, LFUNSPC
     ),
 
     [_NUMBER] = LAYOUT(
