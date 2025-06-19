@@ -70,9 +70,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_FUNNAV] = LAYOUT(
-        KC_TILD, KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  ,                                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        _______, KC_F6  , KC_F7  , KC_F8  , KC_F9  , KC_F10 ,                                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
-        _______, KC_BRID, KC_BRIU, KC_F11 , KC_F12 , KC_CAPS, NORMAN , QWERTY ,     _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+        KC_TILD, KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  ,                                         OM_W_U , OM_BTNS, OM_U   , OM_DBLS, XXXXXXX, XXXXXXX,
+        _______, KC_F6  , KC_F7  , KC_F8  , KC_F9  , KC_F10 ,                                         OM_W_D , OM_L   , OM_D   , OM_R   , OM_SLOW, _______,
+        _______, KC_BRID, KC_BRIU, KC_F11 , KC_F12 , KC_CAPS, NORMAN , QWERTY ,     _______, _______, OM_RELS, OM_HLDS, OM_SEL1, OM_SEL2, OM_SEL3, _______,
                                    _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______
         //
         // IDEA: make right side mouse keys
